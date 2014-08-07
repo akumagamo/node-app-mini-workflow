@@ -1,0 +1,7 @@
+#Development Steps
+
+1. Create Base Folder Structure
+2. Init Git Repo (connect to online Repo)
+3. Create Readme.md
+4. Create package.json
+5. Initial commit

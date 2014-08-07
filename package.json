@@ -1,0 +1,24 @@
+{
+  "name": "mini-workflow-engine",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Mini Workflow Engine building-block style",
+  "author": {
+    "name": "Charles Lam",
+    "email": "charles.lam@gmx.at"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">= 0.4.x"
+  },
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha ./tests"
+  },
+  "dependencies": { },
+  "devDependencies": {
+    "mocha": "~1.0.0"
+  }
+}
