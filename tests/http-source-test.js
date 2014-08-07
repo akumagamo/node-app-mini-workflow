@@ -4,15 +4,17 @@ var httpSource = require("../libs/http-source.js");
 describe("httpSource function", function(){
 	describe("returns", function(){
 		it("always an object", function(){
-		  assert.equal(typeof(httpSource()),typeof({}));
+			assert.equal(typeof(httpSource()),typeof({}));
 		});
 		it("the object has a function called 'connect'", function(){
-			assert.notEqual(httpSource().connect, undefined);
-			assert.equal(typeof(httpSource().connect), typeof(function(){}));
+			var obj = httpSource().connect;
+			assert.notEqual(obj, undefined);
+			assert.equal(typeof(obj), typeof(function(){}));
 		});
 		it("the object has a function called 'execute'", function(){
-			assert.notEqual(httpSource().execute, undefined);
-			assert.equal(typeof(httpSource().execute), typeof(function(){}));
+			var obj = httpSource().connect;
+			assert.notEqual(obj, undefined);
+			assert.equal(typeof(obj), typeof(function(){}));
 		});
 	});
 	describe("when called with a valid url", function(){

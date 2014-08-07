@@ -4,13 +4,13 @@ Mini Workflow Engine for loading data from Webpages. Where the workflow can be d
 
 ## Features
 i. httpSource Module, wraps 'http.get' into a Workflow Module.
+i. regex-transforamtion Module, creates a List from a given String, with the passed RegEx-Expression.
 
 ## Roadmap / Future Features
 i. GUI interface
 i. "httpFileDownload" Module
 i. "IF" Module, directs the Flow based on the outcome of the passed function.
 i. "FILTER" Module, filters entries from a List based on the passed function (returns a new list)
-i. "REGEX" Modul, creates a List from a given String, with the passed RegEx-Expression
 i. "FOR" Module, goes through all elements in an List and executes a passed function on each item
 i. "LOG" Module, writes a given Object to the console.
 i. Custom modules, create interface for custom Modules

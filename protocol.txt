@@ -4,4 +4,5 @@
 2. Init Git Repo (connect to online Repo)
 3. Create Readme.md
 4. Create package.json
-5. Initial commit
+5. Check/Set git ignore Files
+6. Initial commit
