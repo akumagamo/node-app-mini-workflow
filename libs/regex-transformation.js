@@ -1,19 +1,12 @@
+var ModuleConnector = require("../libs/workflow-core.js").ModuleConnector;
 
 module.exports = function(text, expression){
+
 	var exp = expression ||/([^\r\n]+)/gi
 	var list = text.match(expression ||/([^\r\n]+)/gi);
+	var obj = new ModuleConnector();
 	
-	var obj = {
-		execute: function(callback){
-			callback(list);
-		},
-		connect:function(module){
-			var args = [].slice.call(arguments,1);
-			args.unshift(list);			
-			console.info(args);
-			module.apply(this, args);
-		}
-	};
+	setTimeout(function(){obj.done(list);}, 1);
 	
 	return obj;
 }

@@ -12,7 +12,7 @@ describe("httpSource function", function(){
 			assert.equal(typeof(obj), typeof(function(){}));
 		});
 		it("the object has a function called 'execute'", function(){
-			var obj = httpSource().connect;
+			var obj = httpSource().execute;
 			assert.notEqual(obj, undefined);
 			assert.equal(typeof(obj), typeof(function(){}));
 		});
@@ -25,26 +25,6 @@ describe("httpSource function", function(){
 						throw new Error();
 					done();
 				}); 
-			});
-		});
-		describe("a call to the 'connect'", function(){
-			it("with one parameter, calls the first Parameter of 'connect' with an instance of 'http.ClientRequest'", function(done){
-				httpSource("http://localhost:8080").connect(function(){
-					assert.equal(1, arguments.length);
-					done();
-				}); 
-			});
-			it("with two parameters, calls the first Parameter of 'connect' with an instance of 'http.ClientRequest' and the second parameter", function(done){
-				httpSource("http://localhost:8080").connect(function(){
-					assert.equal(2, arguments.length);
-					done();
-				},1); 
-			});
-			it("with multiple parameters calls, the first Parameter of 'connect' with an instance of 'http.ClientRequest' and the other parameters", function(done){
-				httpSource("http://localhost:8080").connect(function(){
-					assert.equal(5, arguments.length);
-					done();
-				},1,2,3,4); 
 			});
 		});
 	});

@@ -1,10 +1,11 @@
 # Mini Workflow Engine
-## Versionnumber 0.1.0 (2014-08-06)
+## Versionnumber 0.3.5 (2014-08-06) Beta
 Mini Workflow Engine for loading data from Webpages. Where the workflow can be defined modular, in a plug and play / building-block manner
 
 ## Features
-i. httpSource Module, wraps 'http.get' into a Workflow Module.
-i. regex-transforamtion Module, creates a List from a given String, with the passed RegEx-Expression.
+i. httpSource Module, wraps 'http.get' into a Workflow Module. (async)
+i. custom-transformation Module, transforms an object into an other object. (sync)
+i. regex-transforamtion Module, creates a List from a given String, with the passed RegEx-Expression. (sync)
 
 ## Roadmap / Future Features
 i. GUI interface
