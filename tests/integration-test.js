@@ -59,6 +59,49 @@ describe("integration test 1", function(){
 		});
 	});
 	
+	describe("logging", function(){
+		describe("Logs all steps between httpSource, customTransformation and regexTransformation", function(){
+			it("fills 'LOGGING' variable with 3 List Entries", function(done){
+				var LOGGING = [];
+				function log(val){
+					LOGGING.push(val);
+				}
+				
+				httpSource("http://localhost:8080/")
+					.log(log)
+					.connect(customTransformation,function(value){ return value.content; })
+					.log(log)
+					.connect(regexTransformation, /([^\s]+)/gi)
+					.log(log)
+					.execute(function(value){
+						assert.equal(3, LOGGING.length);
+						done();
+					});
+			});
+			it("fills 'LOGGING' variable with 3 passed List Entries", function(done){
+				var LOGGING = [];
+				function log(val){
+					LOGGING.push(val);
+				}
+				
+				httpSource("http://localhost:8080/")
+					.log(log, "1")
+					.connect(customTransformation,function(value){ return value.content; })
+					.log(log, "2")
+					.connect(regexTransformation, /([^\s]+)/gi)
+					.log(log, "3")
+					.execute(function(value){
+						assert.equal(3, LOGGING.length);
+						assert.equal("1", LOGGING[0]);
+						assert.equal("2", LOGGING[1]);
+						assert.equal("3", LOGGING[2]);
+						done();
+					});
+			});
+		});
+	
+	});
+	
 	describe("customTransformation", function(){
 		describe("connects to httpSource", function(){
 			it("returns a Object", function(done){

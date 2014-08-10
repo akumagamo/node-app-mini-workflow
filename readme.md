@@ -1,11 +1,12 @@
 # Mini Workflow Engine
-## Versionnumber 0.3.6 (2014-08-07) Alpha
+## Versionnumber 0.3.7 (2014-08-10) Alpha
 Mini Workflow Engine for loading data from Webpages. Where the workflow can be defined modular, in a building-block manner
 
 ## Features
 i. httpSource Module, wraps 'http.get' into a Workflow Module.
 i. custom-transformation Module, transforms an object into an other object. 
 i. regex-transforamtion Module, creates a List from a given String, with the passed RegEx-Expression.
+i. log values to console or special function.
 
 ## Roadmap / Future Features
 i. GUI interface
@@ -13,7 +14,6 @@ i. "httpFileDownload" Module
 i. "IF" Module, directs the Flow based on the outcome of the passed function.
 i. "FILTER" Module, filters entries from a List based on the passed function (returns a new list)
 i. "FOR" Module, goes through all elements in an List and executes a passed function on each item
-i. "LOG" Module, writes a given Object to the console.
 i. Custom modules, create interface for custom Modules
 
 ## System Requirement & Prerequisits
@@ -34,11 +34,18 @@ NONE
 	var customTransformation = require("./libs/custom-transformation.js");
 
 	httpSource("http://localhost:8080/")
-		.connect(customTransformation, function(value){
-			return value.content;
-		})
-		.connect(regexTransformation, /[^\s]+/gi)
-		.execute(console.info);
+	.connect(customTransformation, function(value){
+		return value.content;
+	})
+	.log(
+		function(obj){
+			console.info("#### Logging Block Start ####");
+			console.info(obj[0]);
+			console.info("#### Logging Block End ####");
+		}
+	)
+	.connect(regexTransformation, /[^\s]+/gi)
+	.execute();;
 	
 
 ## Documentation

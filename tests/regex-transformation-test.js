@@ -4,17 +4,17 @@ var regexTransformation = require("../libs/regex-transformation.js");
 describe("regexTransformation function", function(){
 	describe("returns ", function(){
 		it("always an Object", function(){
-		  assert.equal(typeof(regexTransformation("blank")),typeof({}));
+		  assert.equal(typeof({}), typeof(regexTransformation("blank")));
 		}); 
 		it("the object has a function called 'connect'", function(){
 			var obj = regexTransformation("blank").connect;
-			assert.notEqual(obj, undefined);
-			assert.equal(typeof(obj), typeof(function(){}));
+			assert.notEqual(undefined, obj);
+			assert.equal(typeof(function(){}), typeof(obj));
 		});
 		it("the object has a function called 'execute'", function(){
 			var obj = regexTransformation("blank").execute;
-			assert.notEqual(obj, undefined);
-			assert.equal(typeof(obj), typeof(function(){}));
+			assert.notEqual(undefined, obj);
+			assert.equal(typeof(function(){}),typeof(obj));
 		});
 	});
 
