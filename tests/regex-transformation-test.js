@@ -2,18 +2,17 @@ var assert = require("assert");
 var regexTransformation = require("../libs/regex-transformation.js");
 
 describe("regexTransformation function", function(){
-
-	describe("returns", function(){
-		it("always an object", function(){
-		  assert.equal(typeof(regexTransformation("")),typeof({}));
-		});
+	describe("returns ", function(){
+		it("always an Object", function(){
+		  assert.equal(typeof(regexTransformation("blank")),typeof({}));
+		}); 
 		it("the object has a function called 'connect'", function(){
-			var obj = regexTransformation("").connect;
+			var obj = regexTransformation("blank").connect;
 			assert.notEqual(obj, undefined);
 			assert.equal(typeof(obj), typeof(function(){}));
 		});
 		it("the object has a function called 'execute'", function(){
-			var obj = regexTransformation("").execute;
+			var obj = regexTransformation("blank").execute;
 			assert.notEqual(obj, undefined);
 			assert.equal(typeof(obj), typeof(function(){}));
 		});
@@ -29,6 +28,12 @@ describe("regexTransformation function", function(){
 	});
 	
 	describe("called with one parameter", function(){
+		it("called with empty String ", function(){
+		  try{
+				regexTransformation("");
+				assert.fail();
+			}catch(e){}
+		});
 		it("splits text with new Line '\\r\\n'", function(done){
 		  regexTransformation("test\r\ntest1\r\ntest2\r\n").execute(
 		  function(list){

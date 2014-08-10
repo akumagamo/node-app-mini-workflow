@@ -1,9 +1,9 @@
 var ModuleConnector = require("../libs/workflow-core.js").ModuleConnector;
 
-module.exports = function(input, transformerFunction, mod){
+module.exports = function(input, transformerFunction, connector){
 	
 	var output = transformerFunction?transformerFunction(input):input;
-	var obj = mod || new ModuleConnector();
+	var obj = connector || new ModuleConnector();
 	
 	setTimeout(function (){
 		obj.done(output);

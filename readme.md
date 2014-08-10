@@ -1,11 +1,11 @@
 # Mini Workflow Engine
-## Versionnumber 0.3.5 (2014-08-06) Beta
-Mini Workflow Engine for loading data from Webpages. Where the workflow can be defined modular, in a plug and play / building-block manner
+## Versionnumber 0.3.6 (2014-08-07) Alpha
+Mini Workflow Engine for loading data from Webpages. Where the workflow can be defined modular, in a building-block manner
 
 ## Features
-i. httpSource Module, wraps 'http.get' into a Workflow Module. (async)
-i. custom-transformation Module, transforms an object into an other object. (sync)
-i. regex-transforamtion Module, creates a List from a given String, with the passed RegEx-Expression. (sync)
+i. httpSource Module, wraps 'http.get' into a Workflow Module.
+i. custom-transformation Module, transforms an object into an other object. 
+i. regex-transforamtion Module, creates a List from a given String, with the passed RegEx-Expression.
 
 ## Roadmap / Future Features
 i. GUI interface
@@ -29,8 +29,16 @@ NONE
 
 ### Base Code Example
 
-    var httpSource = require("./libs/http-source.js");
-	httpSource("www.google.com").execute(console.info);
+	var httpSource = require("./libs/http-source.js");
+	var regexTransformation = require("./libs/regex-transformation.js");
+	var customTransformation = require("./libs/custom-transformation.js");
+
+	httpSource("http://localhost:8080/")
+		.connect(customTransformation, function(value){
+			return value.content;
+		})
+		.connect(regexTransformation, /[^\s]+/gi)
+		.execute(console.info);
 	
 
 ## Documentation
@@ -38,14 +46,22 @@ NONE
 ### File / Folder Structure (TODO: sort alpha)
      +-+- njs_mini_workflow
 	   +-+- libs
+	   | +- custom-transformation.js
 	   | +- http-source.js
+	   | +- regex-transformation.js
+	   | +- workflow-core.js
 	   | +- ...
        +-+- node_modules (needed libs etc.)
        | +- ...
        +-+- tests
-       | +- http-source-test.js
        | +- async-test.js
+       | +- custom-transformation-test.js
+       | +- http-source-test.js
+       | +- integration-test.js
+       | +- regex-transformation-test.js
+       | +- workflow-core-test.js
        | +- ...
+	   +- app.js (demo app)
        +- readme.md (this document)
 	   +- package.json
 	   +- LICENSE
