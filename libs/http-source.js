@@ -1,5 +1,5 @@
 var http = require("http");
-var ModuleConnector = require("../libs/workflow-core.js").ModuleConnector;
+var ModuleConnector = require("./workflow-core.js").ModuleConnector;
 
 module.exports = function(url, connector){
 	var obj = connector || new ModuleConnector();

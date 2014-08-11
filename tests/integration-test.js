@@ -1,7 +1,10 @@
 var assert = require("assert");
+var fs = require("fs");
+
 var httpSource = require("../libs/http-source.js");
 var regexTransformation = require("../libs/regex-transformation.js");
 var customTransformation = require("../libs/custom-transformation.js");
+var fileDestination = require("../libs/file-destination.js");
 
 describe("integration test 1", function(){
 
@@ -57,6 +60,7 @@ describe("integration test 1", function(){
 					});
 			});
 		});
+			
 	});
 	
 	describe("logging", function(){
@@ -118,6 +122,41 @@ describe("integration test 1", function(){
 	
 	});
 	
+	describe("fileDestination", function(){
+		describe("connects to customTransformation and regexTransformation and customTransformation and fileDestination", function(){
+		
+		var filename = "logs/integration-test1.log";
+			beforeEach(function(done){
+				// delete / create new file
+				fs.exists(filename, function(exists){
+					if(exists)
+						fs.unlink(filename,function(){
+							done();
+						});
+					else
+						done();
+				});
+			});
+			
+		
+			it("returns a String and writes into file", function(done){
+				httpSource("http://localhost:8080/")
+					.connect(customTransformation,function(value){ return value.content; })
+					.connect(regexTransformation, /([^\s]+)/gi)
+					.connect(customTransformation,function(value){ return value.pop();})
+					.connect(fileDestination, filename)
+					.execute(function(value){
+						assert.equal(typeof(value), typeof(""));
+						fs.readFile(filename, function(err, data){
+							assert.equal(data, value);
+							done();
+						});
+					});
+			});
+		});
+	
+	});
+	
 	describe("regexTransformation", function(){
 		describe("connects to customTransformation and httpSource", function(){
 			it("returns a Object", function(done){
@@ -149,6 +188,6 @@ describe("integration test 1", function(){
 					});
 			});
 		});
-		
+
 	});
 });

@@ -1,6 +1,6 @@
 {
   "name": "mini-workflow-engine",
-  "version": "0.0.1",
+  "version": "0.3.8",
   "private": true,
   "description": "Mini Workflow Engine building-block style",
   "author": {
@@ -15,7 +15,8 @@
     "node": ">= 0.4.x"
   },
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha ./tests"
+    "test": "node ./node_modules/mocha/bin/mocha ./tests",
+	"start": "node app.js"
   },
   "dependencies": { },
   "devDependencies": {

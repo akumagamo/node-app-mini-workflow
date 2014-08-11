@@ -1,4 +1,4 @@
-var ModuleConnector = require("../libs/workflow-core.js").ModuleConnector;
+var ModuleConnector = require("./workflow-core.js").ModuleConnector;
 
 module.exports = function(input, transformerFunction, connector){
 	
