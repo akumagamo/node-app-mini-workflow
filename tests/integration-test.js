@@ -5,6 +5,7 @@ var httpSource = require("../libs/http-source.js");
 var regexTransformation = require("../libs/regex-transformation.js");
 var customTransformation = require("../libs/custom-transformation.js");
 var fileDestination = require("../libs/file-destination.js");
+var fileSource = require("../libs/file-source.js");
 
 describe("integration test 1", function(){
 
@@ -122,10 +123,38 @@ describe("integration test 1", function(){
 	
 	});
 	
+	describe("fileSource", function(){
+		describe("connects to regexTransformation and customTransformation", function(){
+		
+			var filename = "logs/integration-test-file-source.log";
+			var testMessage = "test\r\ntest1\r\ntest2";
+			beforeEach(function(done){
+				fs.writeFile(filename, testMessage, function(){
+					done();
+				});
+			});
+		
+			it("returns the String Message", function(done){
+				fileSource(filename)
+					.connect(regexTransformation, null)
+					.connect(customTransformation, function(value){
+						return value.join("\r\n"); })
+					.execute(function(value){
+						assert.equal(typeof(value), typeof(""));
+						assert.equal(value, testMessage);
+						done();
+					});
+			});
+		});
+	
+	});
+	
+	
+	
 	describe("fileDestination", function(){
 		describe("connects to customTransformation and regexTransformation and customTransformation and fileDestination", function(){
 		
-		var filename = "logs/integration-test1.log";
+		var filename = "logs/integration-test-file-destination.log";
 			beforeEach(function(done){
 				// delete / create new file
 				fs.exists(filename, function(exists){

@@ -1,5 +1,5 @@
 # Mini Workflow Engine
-## Versionnumber 0.3.9 (2014-08-11) Alpha
+## Versionnumber 0.3.10 (2014-08-11) Alpha
 Mini Workflow Engine for loading data from Webpages. Where the workflow can be defined modular, in a building-block manner
 
 ## Features
@@ -8,6 +8,7 @@ i. custom-transformation Module, transforms an object into an other object.
 i. regex-transforamtion Module, creates a List from a given String, with the passed RegEx-Expression.
 i. log values to console or special function.
 i. fileDestination Module, writes values into a defined File and passes the value unchanged to next caller.
+i. fileSource Module, base textfile Reader Module
 
 ## Roadmap / Future Features
 i. GUI interface
@@ -17,6 +18,9 @@ i. "IF" Module, directs the Flow based on the outcome of the passed function.
 i. "FILTER" Module, filters entries from a List based on the passed function (returns a new list)
 i. "FOR" Module, goes through all elements in an List and executes a passed function on each item
 i. Custom modules, create interface for custom Modules (Factory eq.)
+
+## Known Bugs
+i. since ModuleConnector object is "injected", in nested calls, default values will only work if, the position in the function call is filled with null / undefined / usw. (see by regexTransformation, ...)
 
 ## System Requirement & Prerequisits
  simply node.js installation
@@ -47,8 +51,9 @@ NONE
 		}
 	)
 	.connect(regexTransformation, /[^\s]+/gi)
-	.execute();;
+	.execute();
 	
+	...
 
 ## Documentation
 
@@ -75,20 +80,19 @@ NONE
 	   +- app.js (demo app)
        +- readme.md (this document)
 	   +- package.json
-	   +- config.json
+	   +- config.json (not in use at the moment)
 	   +- LICENSE
 	  
 ### API / Commands
 
-
-#### Functions
+#### Functions / Modules
 i. http
 i. customTransformation
-i. regexTRansformation
+i. regexTransformation
+i. fileDestination
 
 #### Classes
 i. ModuleConnector
-
 
 ### External Libs
 

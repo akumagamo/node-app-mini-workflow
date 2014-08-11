@@ -1,1 +1,7 @@
-{}
+{
+	"modules":{
+		"fileSource":{
+			"encoding":"utf-8"
+		}
+	}
+}

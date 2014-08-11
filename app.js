@@ -15,20 +15,3 @@
 	)
 	.connect(regexTransformation, /[^\s]+/gi)
 	.execute();;
-	
-	var fs = require("fs");
-	
-	
-	for(var name in fs)
-		if(typeof(fs[name])==typeof(function(){}))
-			console.info("-> " + name);
-	/*		
-	fs.writeFile(__dirname + "/test.txt", "test", function(){
-		console.info(arguments);
-	});*/
-	
-	fs.exists("config1.json", function(err){
-		fs.unlink("config1.json",function(){
-			console.info(arguments);
-		});
-	})
