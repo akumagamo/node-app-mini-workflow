@@ -1,3 +1,4 @@
 node_modules/
+quick-test/
 tests/test-file.txt
 quick-test.js
