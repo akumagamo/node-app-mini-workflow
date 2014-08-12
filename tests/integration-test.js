@@ -54,7 +54,7 @@ describe("integration test 1", function(){
 				httpSource("http://localhost:8080/")
 					.connect(customTransformation,function(value){ return value.content; })
 					.connect(regexTransformation, /([^\s]+)/gi)
-					.connect(customTransformation,function(value){ return value.pop(); })
+					.connect(customTransformation,function(value){ return value.pop().pop(); })
 					.execute(function(value){
 						assert.equal(typeof(value), typeof(""));
 						done();
@@ -138,7 +138,7 @@ describe("integration test 1", function(){
 				fileSource(filename)
 					.connect(regexTransformation, null)
 					.connect(customTransformation, function(value){
-						return value.join("\r\n"); })
+						return value.map(function(v){return v.pop();}).join("\r\n"); })
 					.execute(function(value){
 						assert.equal(typeof(value), typeof(""));
 						assert.equal(value, testMessage);
@@ -171,8 +171,8 @@ describe("integration test 1", function(){
 			it("returns a String and writes into file", function(done){
 				httpSource("http://localhost:8080/")
 					.connect(customTransformation,function(value){ return value.content; })
-					.connect(regexTransformation, /([^\s]+)/gi)
-					.connect(customTransformation,function(value){ return value.pop();})
+					.connect(regexTransformation, /([^\s]+)/gi).log()
+					.connect(customTransformation,function(value){ return value.pop().pop();})
 					.connect(fileDestination, filename)
 					.execute(function(value){
 						assert.equal(typeof(value), typeof(""));
@@ -191,7 +191,7 @@ describe("integration test 1", function(){
 			it("returns a Object", function(done){
 				regexTransformation("http://localhost:8080/")
 					.connect(customTransformation, function(value){
-						return value[0];
+						return value.pop()[0];
 					})
 					.connect(httpSource)
 					.execute(function(value){
@@ -204,15 +204,16 @@ describe("integration test 1", function(){
 		});
 	
 		describe("connects to customTransformation and regexTransformation", function(){
-			it("returns a List", function(done){
+			it("returns a List of List of Strings", function(done){
 				regexTransformation("http://localhost:8080/orf.html", /http:\/\/([^\/]+)\//gi)
 					.connect(customTransformation, function(value){
-						return value[0];
+						return value[0].pop();
 					})
 					.connect(regexTransformation, /:(\d+)/gi)
 					.execute(function(value){
-						assert.equal(typeof(value[0]), typeof(""));
-						assert.equal(value[0], "8080");
+						var val = value.pop()[1];
+						assert.equal(typeof(val), typeof(""));
+						assert.equal(val, "8080");
 						done();
 					});
 			});
