@@ -1,5 +1,5 @@
 # Mini Workflow Engine
-## Versionnumber 0.3.12 (2014-08-11) Alpha
+## Versionnumber 0.3.13 (2014-08-11) Alpha
 Mini Workflow Engine for loading data from Webpages. Where the workflow can be defined modular, in a building-block manner
 
 ## Features
@@ -9,6 +9,7 @@ i. regex-transforamtion Module, creates a List of Lists from a given String, wit
 i. log values to console or special function.
 i. fileDestination Module, writes values into a defined File and passes the value unchanged to next caller.
 i. fileSource Module, base textfile Reader Module
+i. join to Flows
 
 ## Roadmap / Future Features
 i. GUI interface
@@ -22,6 +23,7 @@ i. Custom modules, create interface for custom Modules (Factory eq.)
 i. autoloading from Modules
 i. regexModule upgrade selection function
 i. customScript Module, to execute scripts in the workflow context
+i. extend joinModule to accept multiple flows
 
 ## Known Bugs
 i. since ModuleConnector object is "injected", in nested calls, default values will only work if, the position in the function call is filled with null / undefined / usw. (see by regexTransformation, ...)

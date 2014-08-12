@@ -6,6 +6,7 @@ var regexTransformation = require("../libs/regex-transformation.js");
 var customTransformation = require("../libs/custom-transformation.js");
 var fileDestination = require("../libs/file-destination.js");
 var fileSource = require("../libs/file-source.js");
+var join = require("../libs/join.js");
 
 describe("integration test 1", function(){
 
@@ -109,7 +110,7 @@ describe("integration test 1", function(){
 	
 	describe("customTransformation", function(){
 		describe("connects to httpSource", function(){
-			it("returns a Object", function(done){
+			it("returns an Object", function(done){
 				customTransformation("http://localhost:8080/" ,function(value){ return value; })
 					.connect(httpSource)
 					.execute(function(value){
@@ -219,5 +220,22 @@ describe("integration test 1", function(){
 			});
 		});
 
+	});
+	
+	describe.only("join", function(){
+		describe("join two customTransformations", function(){
+			it("returns an Object", function(done){
+				join(
+					customTransformation("flow1", function(val){return val;}),
+					customTransformation("flow2", function(val){return val;})
+				)
+				.log()
+				.execute(function(value){
+					assert.equal(value["value1"], "flow1");
+					assert.equal(value["value2"], "flow2");
+					done();
+				});
+			});
+		});
 	});
 });
