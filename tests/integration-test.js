@@ -149,9 +149,7 @@ describe("integration test 1", function(){
 		});
 	
 	});
-	
-	
-	
+		
 	describe("fileDestination", function(){
 		describe("connects to customTransformation and regexTransformation and customTransformation and fileDestination", function(){
 		
@@ -168,7 +166,6 @@ describe("integration test 1", function(){
 				});
 			});
 			
-		
 			it("returns a String and writes into file", function(done){
 				httpSource("http://localhost:8080/")
 					.connect(customTransformation,function(value){ return value.content; })
@@ -222,7 +219,7 @@ describe("integration test 1", function(){
 
 	});
 	
-	describe.only("join", function(){
+	describe("join", function(){
 		describe("join two customTransformations", function(){
 			it("returns an Object", function(done){
 				join(

@@ -24,6 +24,7 @@ i. autoloading from Modules
 i. regexModule upgrade selection function
 i. customScript Module, to execute scripts in the workflow context
 i. extend joinModule to accept multiple flows
+i. parameters as option-object
 
 ## Known Bugs
 i. since ModuleConnector object is "injected", in nested calls, default values will only work if, the position in the function call is filled with null / undefined / usw. (see by regexTransformation, ...)

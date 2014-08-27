@@ -3,7 +3,6 @@ var config = require("../config.json");
 
 var fs = require("fs");
 
-
 module.exports = function(filename, connector){
 
 	var obj = connector || new ModuleConnector();
