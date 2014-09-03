@@ -3,6 +3,7 @@
 Mini Workflow Engine for loading data from Webpages. Where the workflow can be defined modular, in a building-block manner
 
 ## Features
+
 i. httpSource Module, wraps 'http.get' into a Workflow Module.
 i. custom-transformation Module, transforms an object into an other object. 
 i. regex-transforamtion Module, creates a List of Lists from a given String, with the passed RegEx-Expression.
@@ -12,6 +13,7 @@ i. fileSource Module, base textfile Reader Module
 i. join to Flows
 
 ## Roadmap / Future Features
+
 i. GUI interface
 i. Naming of Module-Steps
 i. fileSource Module (css, textfile, json, ...)
@@ -27,6 +29,7 @@ i. extend joinModule to accept multiple flows
 i. parameters as option-object
 
 ## Known Bugs
+
 i. since ModuleConnector object is "injected", in nested calls, default values will only work if, the position in the function call is filled with null / undefined / usw. (see by regexTransformation, ...)
 
 ## System Requirement & Prerequisits
@@ -65,6 +68,7 @@ NONE
 ## Documentation
 
 ### File / Folder Structure (TODO: sort alpha)
+
      +-+- njs_mini_workflow
 	   +-+- libs
 	   | +- custom-transformation.js
@@ -93,12 +97,14 @@ NONE
 ### API / Commands
 
 #### Functions / Modules
+
 i. http
 i. customTransformation
 i. regexTransformation
 i. fileDestination
 
 #### Classes
+
 i. ModuleConnector
 
 ### External Libs
