@@ -98,7 +98,7 @@ git@github.com:akumagamo/njs_mini_workflow.git
 	   +- config.json (not in use at the moment)
 	   +- LICENSE 
 	  
-### API / Commands
+### API / Commands (WIP)
 
 #### Functions / Modules
 * http
