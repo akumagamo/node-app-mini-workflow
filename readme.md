@@ -41,7 +41,7 @@ Mini Workflow Engine for loading data from Webpages. Where the workflow can be d
 Download Source from SourceLink and execute "npm install"
 
 ### SourceControl Link & Information
-NONE YET
+git@github.com:akumagamo/njs_mini_workflow.git
 
 ### Base Code Example
 
