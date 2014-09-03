@@ -15,7 +15,10 @@ Mini Workflow Engine for loading data from Webpages. Where the workflow can be d
 * since ModuleConnector object is "injected", in nested calls, default values will only work if, the position in the function call is filled with null / undefined / usw. (see by regexTransformation, ...)
 
 ## Roadmap / Future Features
-* parameters as option-object (fixes )
+* parameters as option-object (fixes)
+* httpSource, http... add WebProxy Setting
+* httpDestination
+* timerStep, wait before call
 * autoloading from Modules
 * Custom modules, create interface for custom Modules (Factory eq.)
 * regexModule upgrade selection function
@@ -68,12 +71,17 @@ NONE YET
      +-+- njs_mini_workflow
 	   +-+- libs
 	   | +- custom-transformation.js
+	   | +- file-destination.js
+	   | +- file-source.js
 	   | +- http-source.js
+	   | +- join.js
 	   | +- regex-transformation.js
 	   | +- workflow-core.js
-	   | +- file-destination.js
+	   | +- ...
+	   +-+- logs (logfile default folder)
 	   | +- ...
        +-+- node_modules (needed libs etc.)
+	   | +- mocha
        | +- ...
        +-+- tests
        | +- async-test.js
@@ -88,7 +96,7 @@ NONE YET
        +- readme.md (this document)
 	   +- package.json
 	   +- config.json (not in use at the moment)
-	   +- LICENSE
+	   +- LICENSE 
 	  
 ### API / Commands
 
