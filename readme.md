@@ -3,31 +3,31 @@
 Mini Workflow Engine for loading data from Webpages. Where the workflow can be defined modular, in a building-block manner
 
 ## Features
-i. httpSource Module, wraps 'http.get' into a Workflow Module.
-i. custom-transformation Module, transforms an object into an other object. 
-i. regex-transforamtion Module, creates a List of Lists from a given String, with the passed RegEx-Expression.
-i. log values to console or special function.
-i. fileDestination Module, writes values into a defined File and passes the value unchanged to next caller.
-i. fileSource Module, base textfile Reader Module
-i. join to Flows
-
-## Roadmap / Future Features
-i. GUI interface
-i. Naming of Module-Steps
-i. fileSource Module (css, textfile, json, ...)
-i. "httpFileDownload" Module
-i. "IF" Module, directs the Flow based on the outcome of the passed function.
-i. "FILTER" Module, filters entries from a List based on the passed function (returns a new list)
-i. "FOR" Module, goes through all elements in an List and executes a passed function on each item
-i. Custom modules, create interface for custom Modules (Factory eq.)
-i. autoloading from Modules
-i. regexModule upgrade selection function
-i. customScript Module, to execute scripts in the workflow context
-i. extend joinModule to accept multiple flows
-i. parameters as option-object
+* httpSource Module, wraps 'http.get' into a Workflow Module.
+* custom-transformation Module, transforms an object into an other object. 
+* regex-transforamtion Module, creates a List of Lists from a given String, with the passed RegEx-Expression.
+* log values to console or special function.
+* fileDestination Module, writes values into a defined File and passes the value unchanged to next caller.
+* fileSource Module, base textfile Reader Module
+* join to Flows
 
 ## Known Bugs
-i. since ModuleConnector object is "injected", in nested calls, default values will only work if, the position in the function call is filled with null / undefined / usw. (see by regexTransformation, ...)
+* since ModuleConnector object is "injected", in nested calls, default values will only work if, the position in the function call is filled with null / undefined / usw. (see by regexTransformation, ...)
+
+## Roadmap / Future Features
+* parameters as option-object (fixes )
+* autoloading from Modules
+* Custom modules, create interface for custom Modules (Factory eq.)
+* regexModule upgrade selection function
+* "FOR" Module, goes through all elements in an List and executes a passed function on each item
+* "IF" Module, directs the Flow based on the outcome of the passed function.
+* "FILTER" Module, filters entries from a List based on the passed function (returns a new list)
+* extend joinModule to accept multiple flows
+* "httpFileDownload" Module
+* specific fileSource Module (css, textfile, json, ...)
+* customScript Module, to execute scripts in the workflow context
+* Naming of Module-Steps
+* GUI interface
 
 ## System Requirement & Prerequisits
  simply node.js installation
@@ -38,7 +38,7 @@ i. since ModuleConnector object is "injected", in nested calls, default values w
 Download Source from SourceLink and execute "npm install"
 
 ### SourceControl Link & Information
-NONE
+NONE YET
 
 ### Base Code Example
 
@@ -64,7 +64,7 @@ NONE
 
 ## Documentation
 
-### File / Folder Structure (TODO: sort alpha)
+### File / Folder Structure (TODO: sort alphaNum)
      +-+- njs_mini_workflow
 	   +-+- libs
 	   | +- custom-transformation.js
@@ -93,13 +93,13 @@ NONE
 ### API / Commands
 
 #### Functions / Modules
-i. http
-i. customTransformation
-i. regexTransformation
-i. fileDestination
+* http
+* customTransformation
+* regexTransformation
+* fileDestination
 
 #### Classes
-i. ModuleConnector
+* ModuleConnector
 
 ### External Libs
 
