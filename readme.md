@@ -1,5 +1,6 @@
 # Mini Workflow Engine
 ## Versionnumber 0.3.13 (2014-08-11) Alpha
+(***Documentation last update 2015-10-27 13:30***)  
 Mini Workflow Engine for loading data from Webpages. Where the workflow can be defined modular, in a building-block manner
 
 ## Features
@@ -41,10 +42,11 @@ Mini Workflow Engine for loading data from Webpages. Where the workflow can be d
 Download Source from SourceLink and execute "npm install"
 
 ### SourceControl Link & Information
-git@github.com:akumagamo/njs_mini_workflow.git
+https://github.com/akumagamo/njs_mini_workflow.git
 
 ### Base Code Example
 
+```javascipt
 	var httpSource = require("./libs/http-source.js");
 	var regexTransformation = require("./libs/regex-transformation.js");
 	var customTransformation = require("./libs/custom-transformation.js");
@@ -64,39 +66,39 @@ git@github.com:akumagamo/njs_mini_workflow.git
 	.execute();
 	
 	...
-
+```
 ## Documentation
 
 ### File / Folder Structure (TODO: sort alphaNum)
-     +-+- njs_mini_workflow
-	   +-+- libs
-	   | +- custom-transformation.js
-	   | +- file-destination.js
-	   | +- file-source.js
-	   | +- http-source.js
-	   | +- join.js
-	   | +- regex-transformation.js
-	   | +- workflow-core.js
-	   | +- ...
-	   +-+- logs (logfile default folder)
-	   | +- ...
-       +-+- node_modules (needed libs etc.)
-	   | +- mocha
-       | +- ...
-       +-+- tests
-       | +- async-test.js
-       | +- custom-transformation-test.js
-       | +- http-source-test.js
-       | +- integration-test.js
-       | +- regex-transformation-test.js
-       | +- workflow-core-test.js
-	   | +- file-destination-test.js 
-       | +- ...
-	   +- app.js (demo app)
-       +- readme.md (this document)
-	   +- package.json
-	   +- config.json (not in use at the moment)
-	   +- LICENSE 
+         +-+- njs_mini_workflow
+           +-+- libs
+           | +- custom-transformation.js
+           | +- file-destination.js
+           | +- file-source.js
+           | +- http-source.js
+           | +- join.js
+           | +- regex-transformation.js
+           | +- workflow-core.js
+           | +- ...
+           +-+- logs (logfile default folder)
+           | +- ...
+           +-+- node_modules (needed libs etc.)
+           | +- mocha
+           | +- ...
+           +-+- tests
+           | +- async-test.js
+           | +- custom-transformation-test.js
+           | +- http-source-test.js
+           | +- integration-test.js
+           | +- regex-transformation-test.js
+           | +- workflow-core-test.js
+           | +- file-destination-test.js 
+           | +- ...
+           +- app.js (demo app)
+           +- readme.md (this document)
+           +- package.json
+           +- config.json (not in use at the moment)
+           +- LICENSE 
 	  
 ### API / Commands (WIP)
 
